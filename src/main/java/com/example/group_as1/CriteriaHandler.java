@@ -1,10 +1,12 @@
 package com.example.group_as1;
 
 import entities.GeographicareaEntity;
+import entities.TotalincomeEntity;
 
 import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,4 +38,56 @@ public class CriteriaHandler {
 
         return top10;
     }
+
+
+    public List<GeographicareaEntity> returnID10(){
+        List<GeographicareaEntity> id10 = new ArrayList<>();
+        //Get Criteria Builder
+        CriteriaQuery<GeographicareaEntity> criteriaQuery = criteriaBuilder.createQuery(GeographicareaEntity.class);
+        Root<GeographicareaEntity> area = criteriaQuery.from(GeographicareaEntity.class);
+        criteriaQuery.select(area);
+        //Get ID 10
+        Predicate predicate1 = criteriaBuilder.equal(area.get("geographicAreaId"), "10");
+        criteriaQuery.where(predicate1);
+
+        //Set List
+        CriteriaQuery<GeographicareaEntity> part2Question = criteriaQuery.select(area);
+        TypedQuery<GeographicareaEntity> part2Query = em.createQuery(part2Question);
+        id10 = part2Query.getResultList();
+
+        return id10;
+    }
+
+    public List<GeographicareaEntity> returnLevel2(){
+        List<GeographicareaEntity> level2 = new ArrayList<>();
+
+        //Get Criteria Builder
+        CriteriaQuery<GeographicareaEntity> criteriaQuery = criteriaBuilder.createQuery(GeographicareaEntity.class);
+        Root<GeographicareaEntity> area = criteriaQuery.from(GeographicareaEntity.class);
+        criteriaQuery.select(area);
+
+        //Get level 2
+        Predicate predicate2 = criteriaBuilder.equal(area.get("level"), "2");
+        criteriaQuery.where(predicate2);
+        CriteriaQuery<GeographicareaEntity> part3Question = criteriaQuery.select(area);
+        TypedQuery<GeographicareaEntity> part3Query = em.createQuery(part3Question);
+
+        //Set List
+        level2 = part3Query.getResultList();
+
+        return level2;
+    }
+
+    public List<TotalincomeEntity> createQueryfindAllIncome(){
+        List<TotalincomeEntity> income = new ArrayList<>();
+
+        //Query
+        TypedQuery<TotalincomeEntity> part4Question = em.createNamedQuery("findallIncome", TotalincomeEntity.class).setMaxResults(10);
+
+        //Set List
+        income = part4Question.getResultList();
+        return income;
+    }
+
+
 }
