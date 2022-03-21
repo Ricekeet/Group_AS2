@@ -8,11 +8,22 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
 <head>
     <title>Criteria Query</title>
 </head>
 <body>
-    <h1>Criteria Query</h1>
+    <header>
+        <h1 class="title">Criteria Queries</h1>
+        <nav class="navContainer">
+            <ul class="navUl">
+                <li class="navLi"><a href="GeographicalAreaClassificationList.jsp">Geographical Area Classification list</a></li>
+                <li class="navLi"><a href="IndividualGeographicAreaDetails.jsp">Individual Geographical Area Details</a></li>
+                <li class="navLi"><a href="Age.jsp">Age</a></li>
+                <li class="navLi"><a href="CriteriaQuery.jsp">Criteria Queries</a></li>
+            </ul>
+        </nav>
+    </header>
     <br>
     <form action="CriteriaController" method="POST">
         <input type="text" hidden name="pageName" value="criteria">
@@ -39,6 +50,7 @@
     </table>
 
     <h2>Combined Aged Information</h2>
+    <p>This gets the top 20 items in the Age table only containing the combined column, ordered by descending</p>
     <table>
         <tr>
             <th>Age ID</th>
@@ -55,6 +67,7 @@
     </table>
 
     <h2>Geographic Area named Peterborough</h2>
+    <p>This query finds a single Geographic Area with the name "Peterborough" using the Where Clause.</p>
     <table>
         <tr>
             <th>ID</th>
@@ -77,6 +90,7 @@
     </table>
 
     <h2>Total Income between id 10 to 20</h2>
+    <p>This query finds all the income descriptions between id 10 to 20</p>
     <table>
         <tr>
             <th>ID</th>
@@ -94,6 +108,7 @@
     </table>
 
     <h2>Group by Clause</h2>
+    <p>This query finds and displays all the geographic areas grouped by level</p>
     <table>
         <tr>
             <th>ID</th>
@@ -113,6 +128,5 @@
             </tr>
         </c:forEach>
     </table>
-
 </body>
 </html>
