@@ -13,7 +13,7 @@
 <body>
     <h1>Criteria Query</h1>
     <br>
-    <form action="CriteriaController" method="post">
+    <form action="CriteriaController" method="POST">
         <input type="text" hidden name="pageName" value="criteria">
         <input type="submit" name="btnSubmit" id="btnSubmit" value="Get Information">
     </form>
@@ -64,22 +64,54 @@
         </tr>
 
 <%--        Gets the single item from the Peterborough query--%>
-        <c:forEach var="item" items="${requestScope.combined}">
+        <c:forEach var="item" items="${requestScope.peterborough}">
             <tr>
-                <th>${item.geographicAreaID}</th>
-                <th>${item.code}</th>
-                <th>${item.level}</th>
-                <th>${item.name}</th>
-                <th>${item.alternativeCode}</th>
+                <td>${item.geographicAreaID}</td>
+                <td>${item.code}</td>
+                <td>${item.level}</td>
+                <td>${item.name}</td>
+                <td>${item.alternativeCode}</td>
             </tr>
         </c:forEach>
     </table>
 
     <h2>Total Income between id 10 to 20</h2>
-<%--    TODO: Get Total Incomes between id 10 and 20--%>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Description</th>
+        </tr>
+
+        <%--        Gets all the Total Incomes between id 10 to 20--%>
+        <c:forEach var="item" items="${requestScope.totalIncomes}">
+            <tr>
+                <td>${item.id}</td>
+                <td></td>
+
+            </tr>
+        </c:forEach>
+    </table>
 
     <h2>Group by Clause</h2>
-<%--    TODO: Display Geographic Area group by Level--%>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Description</th>
+        </tr>
+
+        <%--        Displays all Geographic Ares grouped by Level--%>
+        <c:forEach var="item" items="${requestScope.geographicAreasByLevel}">
+            <tr>
+                <td>${item.geographicAreaID}</td>
+                <td>${item.code}</td>
+                <td>${item.level}</td>
+                <td>${item.name}</td>
+                <td>${item.alternativeCode}</td>
+                <td></td>
+
+            </tr>
+        </c:forEach>
+    </table>
 
 </body>
 </html>

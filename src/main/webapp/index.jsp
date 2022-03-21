@@ -20,7 +20,7 @@
             <li class="navLi"><a href="GeographicalAreaClassificationList.jsp">Geographical Area Classification list</a></li>
             <li class="navLi"><a href="IndividualGeographicAreaDetails.jsp">Individual Geographical Area Details</a></li>
             <li class="navLi"><a href="Age.jsp">Age</a></li>
-
+            <li class="navLi"><a href="CriteriaQuery.jsp">Criteria Queries</a></li>
         </ul>
     </nav>
 </header>

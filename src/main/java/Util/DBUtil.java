@@ -1,7 +1,7 @@
 package Util;
 
 import bean.SQLInformation;
-import com.mysql.cj.jdbc.MysqlDataSource;
+import com.mysql.cj.jdbc.*;
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -48,6 +48,7 @@ public class DBUtil {
         MysqlDataSource mySqlDS = new MysqlDataSource();
 
         mySqlDS.setUrl("jdbc:mysql://localhost:3306/" + database);
+
         mySqlDS.setUser(user);
         mySqlDS.setPassword(password);
 
