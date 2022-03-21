@@ -2,10 +2,12 @@ package com.example.group_as1;
 
 import entities.AgeEntity;
 import entities.GeographicareaEntity;
+import entities.TotalincomeEntity;
 
 import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,10 +58,31 @@ public class CriteriaHandler {
     }
 
     public GeographicareaEntity GetPeterborough() {
-//        GeographicareaEntity area;
-//
-//
-//        return area;
-        return null;
+        GeographicareaEntity area;
+
+        CriteriaQuery<GeographicareaEntity> criteriaQuery = criteriaBuilder.createQuery(GeographicareaEntity.class);
+        Root<GeographicareaEntity> geoArea = criteriaQuery.from(GeographicareaEntity.class);
+
+        Predicate p1 = criteriaBuilder.equal(geoArea.get("name"), "Peterborough");
+        criteriaQuery.where(p1);
+        CriteriaQuery<GeographicareaEntity> whereClause = criteriaQuery.select(geoArea);
+        TypedQuery<GeographicareaEntity> q = em.createQuery(whereClause);
+
+        area = q.getSingleResult();
+        return area;
+    }
+
+    public List<TotalincomeEntity> GetTotalIncomesBetween10and20() {
+        List<TotalincomeEntity> incomes = new ArrayList<>();
+
+
+        return incomes;
+    }
+
+    public List<GeographicareaEntity> GetGeoGraphicAreasByLevel() {
+        List<GeographicareaEntity> areas = new ArrayList<>();
+
+
+        return areas;
     }
 }

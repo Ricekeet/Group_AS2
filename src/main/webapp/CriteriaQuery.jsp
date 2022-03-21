@@ -67,7 +67,7 @@
 <%--        Gets the single item from the Peterborough query--%>
         <c:forEach var="item" items="${requestScope.peterborough}">
             <tr>
-                <td>${item.geographicAreaID}</td>
+                <td>${item.geographicAreaId}</td>
                 <td>${item.code}</td>
                 <td>${item.level}</td>
                 <td>${item.name}</td>
@@ -83,11 +83,11 @@
             <th>Description</th>
         </tr>
 
-        <%--        Gets all the Total Incomes between id 10 to 20--%>
+        <%--        Gets all the Total Income DESCRIPTIONS between id 10 to 20--%>
         <c:forEach var="item" items="${requestScope.totalIncomes}">
             <tr>
                 <td>${item.id}</td>
-                <td></td>
+                <td>${item.description}</td>
 
             </tr>
         </c:forEach>
@@ -103,7 +103,7 @@
         <%--        Displays all Geographic Ares grouped by Level--%>
         <c:forEach var="item" items="${requestScope.geographicAreasByLevel}">
             <tr>
-                <td>${item.geographicAreaID}</td>
+                <td>${item.geographicAreaId}</td>
                 <td>${item.code}</td>
                 <td>${item.level}</td>
                 <td>${item.name}</td>

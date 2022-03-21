@@ -2,10 +2,13 @@ package com.example.group_as1;
 
 import entities.AgeEntity;
 import entities.GeographicareaEntity;
+import entities.TotalincomeEntity;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "CriteriaController", value = "/CriteriaController")
@@ -39,7 +42,17 @@ public class CriteriaController extends HttpServlet {
 
 //            Get Peterborough
             GeographicareaEntity area = handler.GetPeterborough();
-            request.setAttribute("peterborough", area);
+            List<GeographicareaEntity> areas = new ArrayList<>();
+            areas.add(area);
+            request.setAttribute("peterborough", areas);
+
+//            Get TotalIncome Descriptions between 10 and 20
+            List<TotalincomeEntity> incomes = handler.GetTotalIncomesBetween10and20();
+            request.setAttribute("totalIncomes", incomes);
+
+//            Get geographicAreas By Level
+            List<GeographicareaEntity> areasByLevel = handler.GetGeoGraphicAreasByLevel();
+            request.setAttribute("geographicAreasByLevel", areasByLevel);
         }
 
         RequestDispatcher view = request.getRequestDispatcher(forward);
