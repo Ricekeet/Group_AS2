@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>Group_AS1</artifactId>
+    <artifactId>Group_AS2</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>Group_AS1</name>
+    <name>Group_AS2</name>
     <packaging>war</packaging>
 
     <properties>

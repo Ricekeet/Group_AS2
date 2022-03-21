@@ -23,6 +23,8 @@ public class GeographicalAreaHandler {
 
     public GeographicalAreaHandler() throws ClassNotFoundException{
         dbConnection = DBUtil.getConnection();
+
+        // Create EntityManager objects for JPA functionality
         emf = Persistence.createEntityManagerFactory("CCDBManager");
         em = emf.createEntityManager();
         transaction = em.getTransaction();
