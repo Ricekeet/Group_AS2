@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Objects;
 
 @Entity
+@NamedQuery(name = "findallIncome",query=" SELECT t FROM TotalincomeEntity t")
 @Table(name = "totalincome", schema = "canadacensusdb", catalog = "")
 public class TotalincomeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
