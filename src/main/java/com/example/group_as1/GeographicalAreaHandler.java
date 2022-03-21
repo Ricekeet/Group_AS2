@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.criteria.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,6 +21,7 @@ public class GeographicalAreaHandler {
     private EntityManagerFactory emf;
     private EntityManager em;
     private EntityTransaction transaction;
+    private CriteriaBuilder criteriaBuilder;
 
     public GeographicalAreaHandler() throws ClassNotFoundException{
         dbConnection = DBUtil.getConnection();
@@ -28,6 +30,7 @@ public class GeographicalAreaHandler {
         emf = Persistence.createEntityManagerFactory("CCDBManager");
         em = emf.createEntityManager();
         transaction = em.getTransaction();
+        criteriaBuilder = em.getCriteriaBuilder();
     }
 
     public List<Integer> getAllLevels (){
