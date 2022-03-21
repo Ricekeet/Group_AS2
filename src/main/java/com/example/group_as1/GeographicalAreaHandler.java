@@ -4,6 +4,10 @@ import Util.DBUtil;
 import bean.AreaDetails;
 import bean.GeographicalArea;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,9 +17,15 @@ import java.util.List;
 
 public class GeographicalAreaHandler {
     private Connection dbConnection;
+    private EntityManagerFactory emf;
+    private EntityManager em;
+    private EntityTransaction transaction;
 
     public GeographicalAreaHandler() throws ClassNotFoundException{
         dbConnection = DBUtil.getConnection();
+        emf = Persistence.createEntityManagerFactory("CCDBManager");
+        em = emf.createEntityManager();
+        transaction = em.getTransaction();
     }
 
     public List<Integer> getAllLevels (){
