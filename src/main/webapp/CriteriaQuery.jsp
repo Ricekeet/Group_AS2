@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Criteria Query</title>
@@ -47,7 +48,7 @@
 <%--        Loops through items from the top 20 combined age query--%>
         <c:forEach var="item" items="${requestScope.combined}">
             <tr>
-                <td>${item.ageID}</td>
+                <td>${item.ageId}</td>
                 <td>${item.combined}</td>
             </tr>
         </c:forEach>

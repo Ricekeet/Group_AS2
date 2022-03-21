@@ -41,6 +41,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="jstl-1.2" level="project" />
     <orderEntry type="library" exported="" name="mysql-connector-java-8.0.28" level="project" />
+    <orderEntry type="library" name="hibernate.core" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.22" level="project" />
     <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:3.11.4" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-core:5.6.1.Final" level="project" />
