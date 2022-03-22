@@ -1,6 +1,7 @@
 package com.example.group_as1;
 
 import entities.GeographicareaEntity;
+import entities.HouseholdEntity;
 import entities.TotalincomeEntity;
 
 import javax.persistence.*;
@@ -89,5 +90,28 @@ public class CriteriaHandler {
         return income;
     }
 
+    public Integer createQueryQuestion5(){
+        List<HouseholdEntity> query = new ArrayList<>();
+        CriteriaQuery<HouseholdEntity> criteriaQuery = criteriaBuilder.createQuery(HouseholdEntity.class);
+        Root<HouseholdEntity> household = criteriaQuery.from(HouseholdEntity.class);
+        criteriaQuery.select(household);
+
+        Predicate predicate1 = criteriaBuilder.equal(household.get("householdType"), "4");
+        Predicate predicate2 = criteriaBuilder.equal(household.get("householdSize"), "3");
+        Predicate predicate3 = criteriaBuilder.equal(household.get("householdEarners"), "3");
+        Predicate predicate4 = criteriaBuilder.equal(household.get("totalIncome"), "15");
+        Predicate predicate5 = criteriaBuilder.equal(household.get("censusYear"), "1");
+        criteriaQuery.where(predicate1);
+        criteriaQuery.where(predicate2);
+        criteriaQuery.where(predicate3);
+        criteriaQuery.where(predicate4);
+        criteriaQuery.where(predicate5);
+
+        CriteriaQuery<HouseholdEntity> householdCriteria = criteriaQuery.select(household);
+        TypedQuery<HouseholdEntity> householdQuery = em.createQuery(householdCriteria);
+        query = householdQuery.getResultList();
+        int count = query.size();
+        return count;
+    }
 
 }

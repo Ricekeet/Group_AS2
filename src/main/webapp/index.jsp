@@ -22,6 +22,7 @@
             <li class="navLi"><a href="Age.jsp">Age</a></li>
             <li class="navLi"><a href="CriteriaQuery.jsp">Criteria Queries</a></li>
             <li class="navLi"><a href="Part2-4.jsp">Part 2-4 Assignment 2</a></li>
+            <li class="navLi"><a href="Household.jsp">Household Query</a></li>
         </ul>
     </nav>
 </header>
