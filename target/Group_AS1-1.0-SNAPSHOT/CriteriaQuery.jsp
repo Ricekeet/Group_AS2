@@ -50,6 +50,7 @@
     </table>
 
     <h2>Combined Aged Information</h2>
+    <p>This gets the top 20 items in the Age table only containing the combined column, ordered by descending</p>
     <table>
         <tr>
             <th>Age ID</th>
@@ -66,6 +67,7 @@
     </table>
 
     <h2>Geographic Area named Peterborough</h2>
+    <p>This query finds a single Geographic Area with the name "Peterborough" using the Where Clause.</p>
     <table>
         <tr>
             <th>ID</th>
@@ -88,6 +90,7 @@
     </table>
 
     <h2>Total Income between id 10 to 20</h2>
+    <p>This query finds all the income descriptions between id 10 to 20</p>
     <table>
         <tr>
             <th>ID</th>
@@ -105,10 +108,14 @@
     </table>
 
     <h2>Group by Clause</h2>
+    <p>This query finds and displays all the geographic areas grouped by level</p>
     <table>
         <tr>
             <th>ID</th>
-            <th>Description</th>
+            <th>Code</th>
+            <th>Level</th>
+            <th>Name</th>
+            <th>Alternative Code</th>
         </tr>
 
         <%--        Displays all Geographic Ares grouped by Level--%>
@@ -124,6 +131,5 @@
             </tr>
         </c:forEach>
     </table>
-
 </body>
 </html>

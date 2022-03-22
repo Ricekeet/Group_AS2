@@ -112,7 +112,10 @@
     <table>
         <tr>
             <th>ID</th>
-            <th>Description</th>
+            <th>Code</th>
+            <th>Level</th>
+            <th>Name</th>
+            <th>Alternative Code</th>
         </tr>
 
         <%--        Displays all Geographic Ares grouped by Level--%>
