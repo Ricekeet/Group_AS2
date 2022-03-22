@@ -101,13 +101,8 @@ public class CriteriaHandler {
         Predicate predicate3 = criteriaBuilder.equal(household.get("householdEarners"), "3");
         Predicate predicate4 = criteriaBuilder.equal(household.get("totalIncome"), "15");
         Predicate predicate5 = criteriaBuilder.equal(household.get("censusYear"), "1");
-        criteriaQuery.where(predicate1);
-        criteriaQuery.where(predicate2);
-        criteriaQuery.where(predicate3);
-        criteriaQuery.where(predicate4);
-        criteriaQuery.where(predicate5);
 
-        CriteriaQuery<HouseholdEntity> householdCriteria = criteriaQuery.select(household);
+        CriteriaQuery<HouseholdEntity> householdCriteria = criteriaQuery.where(predicate1,predicate2,predicate3,predicate4,predicate5);
         TypedQuery<HouseholdEntity> householdQuery = em.createQuery(householdCriteria);
         query = householdQuery.getResultList();
         int count = query.size();
